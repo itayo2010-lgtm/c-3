@@ -87,20 +87,25 @@ namespace ConsoleApp22
             Console.WriteLine("the longer streak is " + maxstreak);
         }
 
+
+        
+
         static void Secret()
         {
             Random rnd = new Random();
             int secretnum = rnd.Next(100);
             int num;
-            int counter = 0;
+            int attemps = 0;
+            int maxattemps = 7;
+            Console.WriteLine(secretnum);
 
-            for (int i = 1; i <=3; i++)
+            for (int i = 0; i < 3; i++)
             {
-                Console.WriteLine("this is game " + i);
+                Console.WriteLine("this is game " + (i + 1));
                 do
                 {
-                    Console.WriteLine("enter a number");
-                    num = int.Parse(Console.ReadLine());
+                        Console.WriteLine("enter your guess between 0 to 100 be carfull you can guess " + (maxattemps - i) + " more times");
+                        num = int.Parse(Console.ReadLine());
 
                     if (num > secretnum)
                         Console.WriteLine("the number you chose is bigger than the secret number");
@@ -108,15 +113,20 @@ namespace ConsoleApp22
                         Console.WriteLine("the number you chose is ssmaller than the secret number");
 
 
-                    counter++;
+                    attemps++;
+                    i++;
 
-                } while (num != secretnum);
+                } while (num != secretnum && attemps<maxattemps);
 
-                Console.WriteLine("you are right the number is " + secretnum + " you were right after " + counter + " times");
+                if (attemps > maxattemps)
+                    Console.WriteLine("you are all out of attemps the corect number was " + secretnum);
+                else
+                    Console.WriteLine("congratulations you got it right after the " + attemps + "th try");
             }
-
-
         }
+        }
+
+    
         static void Num()
         {
             Console.WriteLine("enter a number");
@@ -139,3 +149,4 @@ namespace ConsoleApp22
         }
     }
 }
+
