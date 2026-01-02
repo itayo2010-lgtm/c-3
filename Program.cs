@@ -7,51 +7,54 @@ using System.Threading.Tasks;
 namespace ConsoleApp22
 {
 
-  static void Celolar()
-{
-    int price0 = 20;
-    int price1 = 30;
-    int price2 = 50;
-    int count0 = 0;
-    int count1 = 0;
-    int count2 = 0;
-    string mostpopular;
-
-    for (int i = 0; i < 3; i++)
-    {
-        Console.WriteLine("what is your name");
-        string name = Console.ReadLine();
-        Console.WriteLine("chosse a package");
-        int package = int.Parse(Console.ReadLine());
-
-        if (package == 0)
+         static void Celolar()
         {
-            Console.WriteLine(name + " you need to pay " + price0);
-            count0++;
+            int price0 = 20;
+            int price1 = 30;
+            int price2 = 50;
+            int count0 = 0;
+            int count1 = 0;
+            int count2 = 0;
+            string mostpopular;
+            int pay = 0;
+
+            for (int i = 0; i < 3; i++)
+            {
+                Console.WriteLine("what is your name");
+                string name = Console.ReadLine();
+                Console.WriteLine("chosse a package 0, 1 0r 2");
+                int package = int.Parse(Console.ReadLine());
+
+                if (package == 0)
+                {
+                    pay = price0;
+                    count0++;
+
+                }
+                else if (package == 1)
+                {
+                    pay = price1;
+                    count1++;
+                }
+                else if (package == 2)
+                {
+                    pay = price2;
+                    count2++;
+                }
+                Console.WriteLine(name + " you need to pay " + pay);
+            }
+            if (count0 > count1 && count0 > count2)
+                mostpopular = "package 0";
+            else if (count1 > count2 && count1 > count0)
+                mostpopular = "package 1";
+            else
+                mostpopular = "package 2";
+
+            Console.WriteLine("the most popular package is "+mostpopular);
 
         }
-        else if (package == 1)
-        {
-            Console.WriteLine(name + " you need to pay " + price1);
-            count1++;
-        }
-        else if (package == 2)
-        {
-            Console.WriteLine(name + " you need to pay " + price2);
-            count2++;
-        }
-    }
-    if (count0 > count1 && count0 > count2)
-        mostpopular = "package 0";
-    else if (count1 > count2 && count1 > count0)
-        mostpopular = "package 1";
-    else
-        mostpopular = "package 2";
 
-    Console.WriteLine("the most popular package is "+mostpopular);
-
-}
-        
+  
         static void Streak()
         {
             Console.WriteLine("enter a number");
@@ -142,6 +145,7 @@ namespace ConsoleApp22
         }
     }
 }
+
 
 
 
