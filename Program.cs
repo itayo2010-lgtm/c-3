@@ -7,9 +7,7 @@ using System.Threading.Tasks;
 namespace ConsoleApp22
 {
 
-    internal class Program
-    {
-        static void Celolar()
+  static void Celolar()
 {
     int price0 = 20;
     int price1 = 30;
@@ -144,5 +142,6 @@ namespace ConsoleApp22
         }
     }
 }
+
 
 
