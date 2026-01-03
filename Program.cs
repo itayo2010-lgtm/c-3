@@ -6,6 +6,138 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp22
 {
+         
+        static void Food()
+        {
+            double a = 2.5;
+            double b = 4.5;
+            int c = 6;
+            double price;
+            double sum = 0;
+
+            Console.WriteLine("how many cans are in the machine");
+            int cans = int.Parse(Console.ReadLine());
+            Console.WriteLine("how many snacks are in the machine");
+            int snacks = int.Parse(Console.ReadLine());
+
+            while (snacks > 5 &&  cans > 5)
+            {
+                Console.WriteLine("choose an option a, b or c");
+                string choice =Console.ReadLine();
+                Console.WriteLine("how many times do you want it up to 4");
+                int times = int.Parse(Console.ReadLine());
+
+                if (choice.Equals("a"))
+                {
+                    price = a * times;
+                    snacks = snacks - times;
+                }                  
+                else if (choice.Equals("b"))
+                {
+                    price = b * times;
+                    cans = cans - times;
+                }                  
+                else
+                {
+                    price = c * times;
+                    snacks = snacks - times;
+                    cans = cans - times;
+                }                    
+                sum += price;
+            }
+            Console.WriteLine("the total is " + sum + " there are " + snacks + " snacks left and there are " + cans + " cans left");
+        }
+        static void Snack()
+        {
+            int healthy = 0;
+            int nothealthy = 0;
+            double sum = 0;
+            
+            while (healthy  < 3)
+            {
+                Console.WriteLine("what is the snack name");
+                string name = Console.ReadLine();
+                Console.WriteLine("how many cals are in the snack");
+                int cals = int.Parse(Console.ReadLine());
+                Console.WriteLine("how many fat in grams there is in the snack");
+                int fat = int.Parse(Console.ReadLine());
+
+                if (cals < 130 && fat < 5)
+                {
+                    Console.WriteLine(name + " is healthy");
+                    healthy += 1;
+                }
+                else
+                {
+                    Console.WriteLine(name + " is not healthy");
+                    nothealthy += 1;
+                }
+                sum += 1;
+            }
+            Console.WriteLine("the total of snacks we checked is " + sum + " the part of healthy snacks out of all the snacks is " + (healthy / sum * 100));
+        }
+        static void Trip()
+        {
+            string lastname;
+            int members;
+            int cost = 100;
+            int pay;
+            int sum = 0;
+            int families = 0;
+            Console.WriteLine("how many people can go to the trip");
+                int spots = int.Parse(Console.ReadLine());
+
+            while (spots > 0)
+            {
+                Console.WriteLine("what is your family last name");
+                lastname = Console.ReadLine();
+                Console.WriteLine("how many members are in the family");
+                members = int.Parse(Console.ReadLine());
+                if (members <= spots)
+                {
+                    pay = members * cost;
+                    sum += pay;
+                    families++;
+                    Console.WriteLine(lastname + " family you can go to the trip and you need to pay " + pay);
+                    spots = spots - members;
+                }
+                else
+                    Console.WriteLine(lastname + " family you cant go to the trip ther are not enugh spots for your family");
+            }
+            Console.WriteLine("there are " + families + " families that can go to the trip");
+            Console.WriteLine("the total payment is " + sum);
+        }
+        static void Parking()
+        {
+            Console.WriteLine("how many parking spots are there");
+            int spots = int.Parse(Console.ReadLine());
+            int cantenter = 0;
+
+            while (spots > 0)
+            {
+                Console.WriteLine("what is the car weight in tons");
+                int w = int.Parse(Console.ReadLine());
+                Console.WriteLine("what is the car hight in meters");
+                int h = int.Parse(Console.ReadLine());
+                if (w < 10 && h < 5)
+                {
+                    spots -= 1;
+                    Console.WriteLine("you can enter");
+                }
+
+                else
+                {
+                    Console.WriteLine("you cant enter");
+                    cantenter++;
+                }
+                    
+
+            }
+            if (cantenter > 0)
+                Console.WriteLine("there are " + cantenter + " cars that cant enter");
+            else
+                Console.WriteLine("all of the cars can enter");
+        }
 
          static void Celolar()
         {
@@ -145,6 +277,7 @@ namespace ConsoleApp22
         }
     }
 }
+
 
 
 
